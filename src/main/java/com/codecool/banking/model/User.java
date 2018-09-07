@@ -17,4 +17,22 @@ public class User {
         this.name = name;
         this.amountOfMoney = amountOfMoney;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAmountOfMoney() {
+        return amountOfMoney;
+    }
+
+    public List<String> getHistory() {
+        return history;
+    }
+
+
 }
