@@ -1,5 +1,6 @@
 package com.codecool.banking.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
@@ -8,14 +9,17 @@ public class User {
 
     private String name;
 
-    private int amountOfMoney;
+    private BankAccount bankAccount;
 
     private List<String> history;
 
-    public User(int id, String name, int amountOfMoney) {
+    private static List<User> userList = new ArrayList<User>();
+
+    public User(int id, String name, BankAccount bankAccount) {
         this.id = id;
         this.name = name;
-        this.amountOfMoney = amountOfMoney;
+        this.bankAccount = bankAccount;
+        userList.add(this);
     }
 
     public int getId() {
@@ -26,13 +30,12 @@ public class User {
         return name;
     }
 
-    public int getAmountOfMoney() {
-        return amountOfMoney;
+    public BankAccount getBackAccount() {
+        return bankAccount;
     }
 
     public List<String> getHistory() {
         return history;
     }
-
 
 }
