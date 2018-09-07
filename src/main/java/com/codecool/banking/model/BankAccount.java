@@ -6,17 +6,17 @@ import java.util.List;
 
 public class BankAccount {
 
-    private int amountOfMoney;
+    private int balance;
 
     private List<String> history;
 
     public BankAccount(int amountOfMoney) {
-        this.amountOfMoney = amountOfMoney;
+        this.balance = amountOfMoney;
         this.history = new ArrayList<String>();
     }
 
-    public int getAmountOfMoney() {
-        return amountOfMoney;
+    public int getBalance() {
+        return balance;
     }
 
     public List<String> getHistory() {
@@ -24,24 +24,23 @@ public class BankAccount {
     }
 
     public void depositMoney(int moneyToDeposit){
-        this.amountOfMoney += moneyToDeposit;
-        history.add("Date: " + LocalDateTime.now() + ", Deposited: " + moneyToDeposit + ", Balance: " + amountOfMoney);
+        this.balance += moneyToDeposit;
+        history.add("Date: " + LocalDateTime.now() + ", Deposited: " + moneyToDeposit + ", Balance: " + balance);
     }
 
     public void withDrawMoney(int moneyToWithdraw){
-        this.amountOfMoney -= moneyToWithdraw;
-        history.add("Date: " + LocalDateTime.now() + ", Withdrwan: " +moneyToWithdraw + ", Balance: " + amountOfMoney + "");
+        this.balance -= moneyToWithdraw;
+        history.add("Date: " + LocalDateTime.now() + ", Withdrwan: " +moneyToWithdraw + ", Balance: " + balance + "");
     }
 
     public void transferMoney(int userId, int amountOfMoneyToTransfer){
         for (User user: User.getUserList()){
             if (userId == user.getId()){
-                user.getBackAccount().amountOfMoney += amountOfMoneyToTransfer;
-                user.getBackAccount().history.add("Date: " + LocalDateTime.now() + ", Deposited: " + amountOfMoneyToTransfer + ", Balance: " + amountOfMoney);
+                user.getBackAccount().depositMoney(amountOfMoneyToTransfer);
             }
         }
-        this.amountOfMoney -= amountOfMoneyToTransfer;
-        history.add("Date: " + LocalDateTime.now() + ", Withdrwan: " +amountOfMoneyToTransfer + ", Balance: " + amountOfMoney + "");
+        this.balance -= amountOfMoneyToTransfer;
+        history.add("Date: " + LocalDateTime.now() + ", Withdrwan: " +amountOfMoneyToTransfer + ", Balance: " + balance + "");
     }
 
     public void printHistory(){

@@ -17,7 +17,7 @@ public class Main {
         bankAccountOfPista.withDrawMoney(4000);
         bankAccountOfPista.transferMoney(2, 100);
 
-        //userOne.getBackAccount().printHistory();
+        userOne.getBackAccount().printHistory();
         userTwo.getBackAccount().printHistory();
     }
 }
