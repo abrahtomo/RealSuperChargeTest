@@ -17,9 +17,12 @@ public class Main {
         bankAccountOfBob.withDrawMoney(4000);
         bankAccountOfBob.transferMoney(2, 100);
 
-        //userOne.getBackAccount().filterByWithdraw();
-        //userTwo.getBackAccount().filterByDeposit();
-
+        userOne.getBackAccount().filterByWithdraw();
+        System.out.println("-----");
+        userTwo.getBackAccount().filterByDeposit();
+        System.out.println("-----");
+        userTwo.getBackAccount().printHistory();
+        System.out.println("-----");
         userOne.getBackAccount().filterByDate("2018-09-07");
     }
 }

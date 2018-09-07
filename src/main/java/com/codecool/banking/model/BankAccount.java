@@ -1,7 +1,6 @@
 package com.codecool.banking.model;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,7 @@ public class BankAccount {
 
     public BankAccount(int amountOfMoney) {
         this.balance = amountOfMoney;
-        this.history = new ArrayList<String>();
+        this.history = new ArrayList<>();
     }
 
     public int getBalance() {

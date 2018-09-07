@@ -11,7 +11,7 @@ public class User {
 
     private BankAccount bankAccount;
 
-    private static List<User> userList = new ArrayList<User>();
+    private static List<User> userList = new ArrayList<>();
 
     public User(int id, String name, BankAccount bankAccount) {
         this.id = id;
