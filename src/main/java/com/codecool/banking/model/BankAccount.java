@@ -2,8 +2,6 @@ package com.codecool.banking.model;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class BankAccount {
@@ -36,7 +34,14 @@ public class BankAccount {
     }
 
     public void transferMoney(int userId, int amountOfMoneyToTransfer){
-
+        for (User user: User.getUserList()){
+            if (userId == user.getId()){
+                user.getBackAccount().amountOfMoney += amountOfMoneyToTransfer;
+                user.getBackAccount().history.add("Date: " + LocalDateTime.now() + ", Deposited: " + amountOfMoneyToTransfer + ", Balance: " + amountOfMoney);
+            }
+        }
+        this.amountOfMoney -= amountOfMoneyToTransfer;
+        history.add("Date: " + LocalDateTime.now() + ", Withdrwan: " +amountOfMoneyToTransfer + ", Balance: " + amountOfMoney + "");
     }
 
     public void printHistory(){

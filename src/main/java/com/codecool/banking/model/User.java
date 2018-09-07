@@ -32,5 +32,7 @@ public class User {
         return bankAccount;
     }
 
-
+    public static List<User> getUserList() {
+        return userList;
+    }
 }
