@@ -30,7 +30,7 @@ public class BankAccount {
 
     public void withDrawMoney(int moneyToWithdraw){
         this.balance -= moneyToWithdraw;
-        history.add("Date: " + LocalDateTime.now() + ", Withdrwan: " +moneyToWithdraw + ", Balance: " + balance + "");
+        history.add("Date: " + LocalDateTime.now() + ", Withdrawn: " +moneyToWithdraw + ", Balance: " + balance + "");
     }
 
     public void transferMoney(int userId, int amountOfMoneyToTransfer){
@@ -40,12 +40,28 @@ public class BankAccount {
             }
         }
         this.balance -= amountOfMoneyToTransfer;
-        history.add("Date: " + LocalDateTime.now() + ", Withdrwan: " +amountOfMoneyToTransfer + ", Balance: " + balance + "");
+        history.add("Date: " + LocalDateTime.now() + ", Withdrawn: " +amountOfMoneyToTransfer + ", Balance: " + balance + "");
     }
 
     public void printHistory(){
         for (String historyElements: history){
             System.out.println(historyElements);
+        }
+    }
+
+    public void filterByWithdraw(){
+        for (String historyElements: history){
+            if (historyElements.contains("Withdrawn")){
+                System.out.println(historyElements);
+            }
+        }
+    }
+
+    public void filterByDeposit(){
+        for (String historyElements: history){
+            if (historyElements.contains("Deposited")){
+                System.out.println(historyElements);
+            }
         }
     }
 }
