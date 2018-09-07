@@ -13,7 +13,7 @@ public class Main {
         bankAccountOfPista.depositMoney(500);
         bankAccountOfPista.withDrawMoney(4000);
 
-        System.out.println(userOne.getBackAccount().getAmountOfMoney());
+        userOne.getBackAccount().printHistory();
 
     }
 }
