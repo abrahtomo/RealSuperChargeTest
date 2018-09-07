@@ -1,5 +1,6 @@
 package com.codecool.banking.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,12 +26,12 @@ public class BankAccount {
 
     public void depositMoney(int moneyToDeposit){
         this.balance += moneyToDeposit;
-        history.add("Date: " + LocalDateTime.now() + ", Deposited: " + moneyToDeposit + ", Balance: " + balance);
+        history.add("Date: " + LocalDate.now() + ", Deposited: " + moneyToDeposit + ", Balance: " + balance);
     }
 
     public void withDrawMoney(int moneyToWithdraw){
         this.balance -= moneyToWithdraw;
-        history.add("Date: " + LocalDateTime.now() + ", Withdrawn: " +moneyToWithdraw + ", Balance: " + balance + "");
+        history.add("Date: " + LocalDate.now() + ", Withdrawn: " +moneyToWithdraw + ", Balance: " + balance + "");
     }
 
     public void transferMoney(int userId, int amountOfMoneyToTransfer){
@@ -40,7 +41,7 @@ public class BankAccount {
             }
         }
         this.balance -= amountOfMoneyToTransfer;
-        history.add("Date: " + LocalDateTime.now() + ", Withdrawn: " +amountOfMoneyToTransfer + ", Balance: " + balance + "");
+        history.add("Date: " + LocalDate.now() + ", Withdrawn: " +amountOfMoneyToTransfer + ", Balance: " + balance + "");
     }
 
     public void printHistory(){
@@ -60,6 +61,14 @@ public class BankAccount {
     public void filterByDeposit(){
         for (String historyElements: history){
             if (historyElements.contains("Deposited")){
+                System.out.println(historyElements);
+            }
+        }
+    }
+
+    public void filterByDate(String date){
+        for (String historyElements: history){
+            if (historyElements.contains(date)){
                 System.out.println(historyElements);
             }
         }
